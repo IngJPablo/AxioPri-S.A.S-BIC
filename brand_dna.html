@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AxioPri S.A.S BIC - ADN de Marca Interactivo</title>
+    <!-- Google Fonts: Outfit (Títulos) e Inter (Cuerpo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- SISTEMA DE DISEÑO & TOKENS --- */
+        :root {
+            /* Colores Llaneros & Tech */
+            --color-bg: #080b09;
+            --color-surface: rgba(18, 24, 20, 0.65);
+            --color-border: rgba(200, 169, 76, 0.25);
+            --color-border-glow: rgba(200, 169, 76, 0.55);
+            
+            --color-moriche: #1f8c4e; /* Verde Primario - Bosques de Galería */
+            --color-moriche-glow: rgba(31, 140, 78, 0.25);
+            --color-dorado: #c8a94c;  /* Dorado Llanero - Atardecer y Riqueza */
+            --color-dorado-glow: rgba(200, 169, 76, 0.45);
+            --color-ocaso: #e06a3b;   /* Naranja - Fuerza llanera y calor */
+            
+            --color-text-primary: #f8faf8;
+            --color-text-secondary: #eadbc8; /* Arena llanero cálido de alto contraste para máxima legibilidad */
+            --color-card-bg: rgba(22, 28, 24, 0.7);
+            
+            --font-display: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* --- ESTILOS GENERALES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text-primary);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(31, 140, 78, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(200, 169, 76, 0.08) 0%, transparent 45%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* --- BOTÓN DE ACCIÓN ACCESIBLE --- */
+        .actions-panel {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 30px;
+            gap: 15px;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes shimmer {
+            100% { left: 125%; }
+        }
+
+        .btn-glow {
+            position: relative;
+            overflow: hidden;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 0.95rem;
+            color: #FFFFFF;
+            background: linear-gradient(135deg, var(--color-moriche), var(--color-dorado), var(--color-ocaso), var(--color-moriche));
+            background-size: 300% 300%;
+            animation: gradientShift 6s ease infinite;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 14px 32px;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(31, 140, 78, 0.3), 0 10px 30px rgba(200, 169, 76, 0.2);
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            z-index: 1;
+        }
+
+        /* Shimmer sweep */
+        .btn-glow::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 30%;
+            height: 200%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0) 100%);
+            transform: rotate(30deg);
+            transition: none;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .btn-glow:hover::after {
+            animation: shimmer 1.4s infinite;
+        }
+
+        .btn-glow:hover {
+            background: #080b09; /* Fondo oscuro base para un aislamiento visual completo */
+            color: var(--color-dorado); /* Texto en dorado llanero brillante de alto contraste */
+            border-color: var(--color-dorado); /* Contorno dorado perfectamente definido */
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(200, 169, 76, 0.45), 0 0 15px rgba(200, 169, 76, 0.25);
+            text-shadow: 0 0 8px rgba(200, 169, 76, 0.35);
+            font-weight: 900;
+        }
+
+        .btn-glow:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+
+        /* --- ENCABEZADO --- */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .logo-container {
+            margin-bottom: 25px;
+            display: inline-block;
+            filter: drop-shadow(0 0 15px rgba(200, 169, 76, 0.2));
+            transition: var(--transition-smooth);
+        }
+
+        .logo-container:hover {
+            transform: scale(1.03) rotate(2deg);
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, var(--color-text-primary) 30%, var(--color-dorado) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--color-dorado);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .slogan-banner {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- GRILLA DE ADN DE MARCA --- */
+        .dna-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background-color: var(--color-card-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 32px;
+            backdrop-filter: blur(12px);
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                        border-color 0.4s ease, 
+                        box-shadow 0.5s ease,
+                        background-color 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            will-change: transform, box-shadow;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-moriche), var(--color-dorado), var(--color-ocaso));
+            opacity: 0.7;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card:hover {
+            transform: translateY(-16px) scale(1.05);
+            border-color: var(--color-border-glow);
+            background-color: rgba(22, 28, 24, 0.85);
+            box-shadow: 0 30px 60px rgba(200, 169, 76, 0.35), 0 10px 30px rgba(31, 140, 78, 0.25);
+        }
+
+        .card:hover::before {
+            height: 8px;
+            filter: drop-shadow(0 2px 10px var(--color-dorado));
+        }
+
+        /* Animaciones internas en cascada en las tarjetas al hover */
+        .card:hover svg {
+            transform: scale(1.22) rotate(8deg);
+            filter: drop-shadow(0 0 10px var(--color-dorado));
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .card svg {
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .pill {
+            transform: scale(1.08) translateY(-2px);
+            box-shadow: 0 5px 12px rgba(31, 140, 78, 0.3);
+        }
+
+        .card:hover .pill.dorado {
+            box-shadow: 0 5px 12px rgba(200, 169, 76, 0.35);
+        }
+
+        .color-row {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.4s ease, border-color 0.4s ease;
+            will-change: transform;
+        }
+
+        .color-row:hover {
+            transform: translateX(12px) scale(1.04);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--color-dorado);
+            box-shadow: 0 8px 25px rgba(200, 169, 76, 0.22);
+        }
+
+        .col-12 { grid-column: span 12; }
+        .col-8 { grid-column: span 8; }
+        .col-6 { grid-column: span 6; }
+        .col-4 { grid-column: span 4; }
+
+        @media (max-width: 900px) {
+            .col-8, .col-6, .col-4 { grid-column: span 12; }
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-dorado);
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: var(--color-text-secondary);
+            font-size: 1rem;
+            margin-bottom: 16px;
+            font-weight: 300;
+        }
+
+        /* --- PALETA DE COLORES --- */
+        .palette-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .color-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition-smooth);
+        }
+
+        .color-row:hover {
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateX(5px);
+        }
+
+        .color-swatch {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            flex-shrink: 0;
+        }
+
+        .color-info {
+            flex-grow: 1;
+        }
+
+        .color-name {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--color-text-primary);
+        }
+
+        .color-desc {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .color-code {
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: var(--color-dorado);
+            font-weight: bold;
+        }
+
+        /* --- VALORES & PILARES --- */
+        .pill-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .pill {
+            background: rgba(31, 140, 78, 0.12);
+            color: var(--color-text-primary);
+            border: 1px solid rgba(31, 140, 78, 0.3);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+
+        .pill:hover {
+            background: var(--color-moriche);
+            border-color: var(--color-moriche);
+            box-shadow: 0 0 12px var(--color-moriche-glow);
+        }
+
+        .pill.dorado {
+            background: rgba(200, 169, 76, 0.1);
+            border-color: rgba(200, 169, 76, 0.3);
+        }
+
+        .pill.dorado:hover {
+            background: var(--color-dorado);
+            border-color: var(--color-dorado);
+            box-shadow: 0 0 12px var(--color-dorado-glow);
+        }
+
+        /* --- SECCIÓN BRAND VOICE --- */
+        .voice-box {
+            background: rgba(200, 169, 76, 0.04);
+            border-left: 4px solid var(--color-dorado);
+            padding: 16px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 20px;
+        }
+
+        .voice-box p {
+            margin-bottom: 0;
+            font-style: italic;
+        }
+
+        /* --- ESTILOS DE IMPRESIÓN / EXPORTACIÓN --- */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #121212 !important;
+                font-size: 11pt;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+
+            .actions-panel, .btn-glow {
+                display: none !important; /* Ocultar botones en la impresión */
+            }
+
+            h1 {
+                background: none !important;
+                -webkit-text-fill-color: #121212 !important;
+                color: #121212 !important;
+                font-size: 24pt;
+            }
+
+            .subtitle {
+                color: #8c7333 !important;
+                font-size: 13pt;
+            }
+
+            .slogan-banner {
+                color: #444444 !important;
+            }
+
+            .dna-grid {
+                display: block !important; /* Desarmar grid para flujo vertical continuo en PDF */
+            }
+
+            .card {
+                background: #fbfcfb !important;
+                border: 1px solid #dddddd !important;
+                box-shadow: none !important;
+                margin-bottom: 25px !important;
+                page-break-inside: avoid; /* Evitar que se rompan a la mitad de página */
+                color: #121212 !important;
+                backdrop-filter: none !important;
+                padding: 20px !important;
+            }
+
+            .card::before {
+                height: 3px !important;
+            }
+
+            h2 {
+                color: #121212 !important;
+                border-bottom: 1px solid #cccccc !important;
+            }
+
+            h3 {
+                color: #8c7333 !important;
+            }
+
+            p, .color-desc {
+                color: #333333 !important;
+            }
+
+            .color-row {
+                background: #fdfdfd !important;
+                border: 1px solid #e0e0e0 !important;
+            }
+
+            .color-swatch {
+                border: 1px solid #cccccc !important;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .color-code {
+                color: #8c7333 !important;
+            }
+
+            .pill {
+                background: #eaeaea !important;
+                color: #121212 !important;
+                border: 1px solid #cccccc !important;
+            }
+
+            .voice-box {
+                background: #fbfbf8 !important;
+                border-left: 4px solid #8c7333 !important;
+            }
+
+            /* Forzar a que los fondos de color se impriman en el PDF */
+            * {
+                print-color-adjust: exact !important;
+                -webkit-print-color-adjust: exact !important;
+            }
+        }
+
+        /* --- ESTILOS DE AMBIENTE EN MOVIMIENTO DE FONDO --- */
+        .sky-path-flock {
+            position: fixed;
+            top: 10%;
+            left: 0;
+            width: 100%;
+            height: 180px;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+            opacity: 0.18; /* Más sutil para manual técnico */
+        }
+
+        @keyframes flyFlock {
+            0% { left: 115%; transform: scale(0.32) translateY(0); }
+            50% { transform: scale(0.32) translateY(-20px); }
+            100% { left: -25%; transform: scale(0.32) translateY(8px); }
+        }
+
+        .flock-birds {
+            position: absolute;
+            width: 190px;
+            height: 100px;
+            color: #FFFFFF;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
+            animation: flyFlock 42s linear infinite;
+            animation-delay: 5s;
+        }
+
+        .wing {
+            animation: flap 0.85s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        @keyframes flap {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(-0.7) translateY(2px); }
+        }
+
+        /* Nubes Ocaso Llanero Flotantes */
+        .nube-llanera {
+            position: absolute;
+            background: linear-gradient(180deg, rgba(224, 106, 59, 0.06) 0%, rgba(200, 169, 76, 0.03) 100%);
+            filter: blur(14px);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes floatNubes {
+            0% { transform: translateX(-120vw); }
+            100% { transform: translateX(120vw); }
+        }
+
+        .nube-1 {
+            width: 380px;
+            height: 120px;
+            top: 6%;
+            left: 0;
+            animation: floatNubes 110s linear infinite;
+        }
+
+        .nube-2 {
+            width: 500px;
+            height: 160px;
+            top: 40%;
+            left: 0;
+            animation: floatNubes 160s linear infinite;
+            animation-delay: -35s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Nubes Llaneras flotando en el ocaso de fondo (Legibilidad del manual protegida por CSS print) -->
+    <div class="nube-llanera nube-1"></div>
+    <div class="nube-llanera nube-2"></div>
+
+    <!-- Bandada de Garzas en V en el cielo profundo -->
+    <div class="sky-path-flock">
+        <svg class="flock-birds" viewBox="0 0 200 100" fill="currentColor">
+            <!-- Pájaro líder de la V -->
+            <path class="wing" d="M 30,50 C 35,46 40,48 45,50 M 30,50 C 32,38 28,28 22,20 M 30,50 C 35,50 38,48 40,50" />
+            <!-- Segunda línea superior de la V -->
+            <path class="wing" d="M 60,35 C 65,31 70,33 75,35 M 60,35 C 62,23 58,13 52,5 M 60,35 C 65,35 68,33 70,35" />
+            <path class="wing" d="M 90,20 C 95,16 100,18 105,20 M 90,20 C 92,8 88,-2 82,-10 M 90,20 C 95,20 98,18 100,20" />
+            <!-- Segunda línea inferior de la V -->
+            <path class="wing" d="M 60,65 C 65,61 70,63 75,65 M 60,65 C 62,53 58,43 52,35 M 60,65 C 65,65 68,63 70,65" />
+            <path class="wing" d="M 90,80 C 95,76 100,78 105,80 M 90,80 C 92,68 88,58 82,50 M 90,80 C 95,80 98,78 100,80" />
+        </svg>
+    </div>
+
+    <div class="container">
+        
+        <!-- PANEL DE ACCIÓN INTERACTIVO -->
+        <div class="actions-panel">
+            <button class="btn-glow" onclick="window.print()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                Exportar ADN a PDF para Pomeli
+            </button>
+        </div>
+
+        <!-- ENCABEZADO PRINCIPAL -->
+        <header>
+            <div class="logo-container">
+                <!-- LOGOTIPO VECTORIAL PREMIUM: Fusión de Palma de Moriche Llanera + Geometría Vectorial de Ingeniería -->
+                <svg width="90" height="90" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Sol Llanero / Círculo Guía -->
+                    <circle cx="50" cy="50" r="45" stroke="#c8a94c" stroke-width="2" stroke-dasharray="2 3" opacity="0.6"/>
+                    <circle cx="50" cy="50" r="30" stroke="#1f8c4e" stroke-width="1.5" opacity="0.3"/>
+                    
+                    <!-- Tronco / Eje Estructural -->
+                    <line x1="50" y1="20" x2="50" y2="85" stroke="#c8a94c" stroke-width="3" stroke-linecap="round"/>
+                    
+                    <!-- Vectores de Ingeniería / Hojas del Moriche -->
+                    <!-- Lado Izquierdo -->
+                    <path d="M50 40C38 35 25 45 20 50" stroke="#1f8c4e" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M50 55C34 52 23 65 18 72" stroke="#1f8c4e" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M50 70C40 70 30 78 27 82" stroke="#1f8c4e" stroke-width="2.5" stroke-linecap="round"/>
+                    
+                    <!-- Lado Derecho -->
+                    <path d="M50 40C62 35 75 45 80 50" stroke="#1f8c4e" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M50 55C66 52 77 65 82 72" stroke="#1f8c4e" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M50 70C60 70 70 78 73 82" stroke="#1f8c4e" stroke-width="2.5" stroke-linecap="round"/>
+                    
+                    <!-- Nodos de Datos / IA (Vectores Técnicos) -->
+                    <circle cx="50" cy="20" r="3.5" fill="#c8a94c"/>
+                    <circle cx="20" cy="50" r="3" fill="#1f8c4e"/>
+                    <circle cx="80" cy="50" r="3" fill="#1f8c4e"/>
+                    <circle cx="18" cy="72" r="3" fill="#1f8c4e"/>
+                    <circle cx="82" cy="72" r="3" fill="#1f8c4e"/>
+                </svg>
+            </div>
+            <div class="subtitle">Brand identity guidelines</div>
+            <h1>AXIOPRI S.A.S BIC</h1>
+            <div class="slogan-banner">
+                "Ingeniería Estratégica. Ecosistemas de infraestructura que piensan desde la Orinoquía colombiana para el mundo."
+            </div>
+        </header>
+
+        <!-- GRID DE INFORMACIÓN DE MARCA -->
+        <div class="dna-grid">
+            
+            <!-- TARJETA: PROPÓSITO E HISTORIA -->
+            <div class="card col-8">
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-dorado)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                    El ADN de AxioPri
+                </h2>
+                <p>
+                    <strong>AxioPri S.A.S BIC</strong> es una firma de <strong>Ingeniería Estratégica de modelo Asset-Light</strong> nacida y concebida en la majestuosidad y resiliencia de la <strong>Orinoquía colombiana (departamento del Meta)</strong>. Fusiona los fundamentos irrefutables de la ingeniería civil tradicional con el poder disruptivo del modelado de información (BIM), la Inteligencia Artificial y la Sostenibilidad.
+                </p>
+                <p>
+                    El ADN de la marca se inspira en el <strong>Morichal llanero</strong>, una comunidad botánica única que funciona como un regulador hídrico, filtrando, conservando y estructurando la vida en las sabanas. Al igual que el moriche, AxioPri no solo edifica, sino que actúa como un <strong>organismo de ingeniería inteligente</strong> que optimiza, audita y protege los proyectos y presupuestos mucho antes de que se coloque la primera piedra física en el terreno.
+                </p>
+                
+                <h3>El Concepto de la Palma de Moriche en Ingeniería</h3>
+                <p>
+                    En los Llanos Orientales, la palma de moriche es conocida ancestralmente como el <em>"Árbol de la Vida"</em>. Para AxioPri, representa el equilibrio de nuestro enfoque <strong>BIC (Beneficio e Interés Colectivo)</strong>: raíces profundas y ancladas a la tierra (estatutos, solidez estructural, geología) conectadas con ramificaciones dinámicas que se extienden al espacio (datos, automatización, IA en la nube).
+                </p>
+                
+                <div class="pill-container">
+                    <span class="pill">Ingeniería Asset-Light</span>
+                    <span class="pill">Metodología BIM</span>
+                    <span class="pill">Inteligencia Artificial</span>
+                    <span class="pill dorado">Identidad de la Orinoquía</span>
+                    <span class="pill dorado">Desarrollo Regional BIC</span>
+                    <span class="pill">NTC-ISO 19650</span>
+                </div>
+            </div>
+
+            <!-- TARJETA: PROPUESTA DE LOGOTIPO -->
+            <div class="card col-4" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-dorado)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                    Isotipo Minimalista
+                </h2>
+                <div style="margin-top: 10px; width: 100%; max-width: 170px; aspect-ratio: 1; border-radius: 50%; overflow: hidden; border: 3px solid var(--color-dorado); box-shadow: 0 0 20px rgba(200, 169, 76, 0.3); filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5)); margin-bottom: 5px; background: #121714;">
+                    <img src="axiopri_logo_minimalist.png" alt="AxioPri Isotipo Minimalista" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <p style="margin-top: 15px; font-size: 0.85rem; color: var(--color-text-secondary); margin-bottom: 0;"><strong>Propuesta Recomendada:</strong> Una síntesis icónica de alta memorabilidad que unifica la <strong>"A"</strong> de AxioPri y una hoja de moriche llanera en trazos sólidos y limpios.</p>
+            </div>
+
+            <!-- TARJETA: PALETA DE COLORES DE LA ORINOQUIA -->
+            <div class="card col-4">
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-dorado)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.7255 3.09032 17.1962 4.85857 19C5.35857 19.5 5.25 20.5 4.5 21C3.5 21.6 3 22 3 22H12Z"></path><circle cx="7.5" cy="10.5" r="1.5" fill="currentColor"/><circle cx="11.5" cy="7.5" r="1.5" fill="currentColor"/><circle cx="16.5" cy="9.5" r="1.5" fill="currentColor"/><circle cx="15.5" cy="14.5" r="1.5" fill="currentColor"/></svg>
+                    Colores Llaneros
+                </h2>
+                <p>Colores corporativos curados que plasman nuestra procedencia e identidad ecológica.</p>
+                
+                <div class="palette-container">
+                    
+                    <!-- Verde Moriche -->
+                    <div class="color-row">
+                        <div class="color-swatch" style="background-color: #1f8c4e;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Verde Moriche</div>
+                            <div class="color-desc">Bosques de galería</div>
+                            <div class="color-code">#1F8C4E</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Dorado Llanero -->
+                    <div class="color-row">
+                        <div class="color-swatch" style="background-color: #c8a94c;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Dorado Llanero</div>
+                            <div class="color-desc">Ocaso sobre la llanura</div>
+                            <div class="color-code">#C8A94C</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Naranja Ocaso -->
+                    <div class="color-row">
+                        <div class="color-swatch" style="background-color: #e06a3b;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Naranja Ocaso</div>
+                            <div class="color-desc">Fuerza llanera</div>
+                            <div class="color-code">#E06A3B</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Verde Carbón -->
+                    <div class="color-row">
+                        <div class="color-swatch" style="background-color: #121714;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Verde Carbón</div>
+                            <div class="color-desc">Tono oscuro base</div>
+                            <div class="color-code">#121714</div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- TARJETA: TONO DE VOZ & PERSONALIDAD -->
+            <div class="card col-4">
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-dorado)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    Tono de Voz
+                </h2>
+                <p>Nuestra comunicación combina la rigurosidad científica con la franqueza y calidez del llanero.</p>
+                
+                <h3>Pilares de Comunicación:</h3>
+                <ul>
+                    <li><strong>Riguroso pero Humilde:</strong> Expresamos conocimiento avanzado sin tecnicismos pretenciosos, respetando el saber de campo.</li>
+                    <li><strong>Resistente y Firme:</strong> Evocamos la fortaleza del acero y de la palma de moriche.</li>
+                    <li><strong>Sostenible y Consciente:</strong> Promovemos la infraestructura descarbonizada.</li>
+                </ul>
+                <br>
+                <div class="voice-box">
+                    <h3>Tagline llanero:</h3>
+                    <p>"Infraestructura que piensa. Ingeniería estratégica desde el Meta."</p>
+                </div>
+            </div>
+
+            <!-- TARJETA: LINEAMIENTOS VISUALES & TIPOGRAFÍA -->
+            <div class="card col-4">
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-dorado)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+                    Visual & Tipografía
+                </h2>
+                <p>Para la construcción digital en Pomeli, sugerimos el balance entre tecnología y estructura.</p>
+                
+                <h3>Outfit (Títulos):</h3>
+                <p>Tipografía sans-serif geométrica, inspirada en planos técnicos. Aporta un aire tecnológico premium.</p>
+                
+                <h3>Inter (Cuerpo):</h3>
+                <p>Limpia y altamente legible para interfaces y manuales estructurados.</p>
+                
+                <h3>Dirección de Fotografía:</h3>
+                <ul>
+                    <li><strong>Iluminación:</strong> Cálida, simulando la luz dorada del amanecer llanero.</li>
+                    <li><strong>Sujetos:</strong> Modelados 3D translúcidos (BIM) entrelazados con vegetación nativa.</li>
+                </ul>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <!-- INTERACTIVIDAD DE PERSPECTIVA 3D ULTRA-PREMIUM (TILT) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card, .logo-container');
+            
+            cards.forEach(el => {
+                el.addEventListener('mousemove', (e) => {
+                    const rect = el.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    // Rotación máxima de 14 grados para que sea sumamente visible y tridimensional
+                    const rotateX = ((centerY - y) / centerY) * 14;
+                    const rotateY = ((x - centerX) / centerX) * 14;
+                    
+                    if (el.classList.contains('card')) {
+                        el.style.transform = `perspective(1000px) translateY(-16px) scale(1.05) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                        el.style.borderColor = 'var(--color-border-glow)';
+                        el.style.boxShadow = '0 30px 60px rgba(200, 169, 76, 0.38), 0 10px 30px rgba(31, 140, 78, 0.25)';
+                    } else {
+                        // Para el logotipo vectorial del encabezado
+                        el.style.transform = `perspective(800px) scale(1.1) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    }
+                });
+                
+                el.addEventListener('mouseleave', () => {
+                    el.style.transform = '';
+                    if (el.classList.contains('card')) {
+                        el.style.borderColor = '';
+                        el.style.boxShadow = '';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
