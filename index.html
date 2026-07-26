@@ -885,6 +885,134 @@
             border-color: var(--color-dorado-bright);
         }
 
+        /* --- SECCIÓN ECOSISTEMA DE SOFTWARE CONTECH --- */
+        .software-section {
+            padding: 100px 0;
+        }
+
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 980px) {
+            .software-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+        }
+
+        .software-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 38px 32px;
+        }
+
+        .software-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .software-sector {
+            font-family: var(--font-display);
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: var(--color-dorado-bright);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .software-status {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .status-active {
+            background: rgba(200, 169, 76, 0.12);
+            color: var(--color-dorado-bright);
+            border: 1px solid rgba(200, 169, 76, 0.35);
+        }
+
+        .status-testing {
+            background: rgba(31, 140, 78, 0.14);
+            color: #4ade80;
+            border: 1px solid rgba(31, 140, 78, 0.4);
+        }
+
+        .software-icon-wrapper {
+            margin-bottom: 18px;
+        }
+
+        .software-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 900;
+            color: var(--color-text-primary);
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .software-tagline {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            margin-bottom: 22px;
+            font-weight: 400;
+        }
+
+        .software-body {
+            background: rgba(10, 8, 5, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 16px 18px;
+            margin-bottom: 24px;
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: var(--color-text-muted);
+        }
+
+        .software-problem {
+            margin-bottom: 10px;
+        }
+
+        .software-problem strong, .software-target strong {
+            color: var(--color-text-primary);
+        }
+
+        .software-tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(200, 169, 76, 0.2);
+            color: var(--color-text-secondary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 12px;
+            transition: var(--transition-smooth);
+        }
+
+        .software-card:hover .tech-pill {
+            border-color: var(--color-dorado-bright);
+            color: #FFFFFF;
+            background: rgba(200, 169, 76, 0.1);
+        }
+
         /* --- SECCIÓN CEO / LIDERAZGO --- */
         .founder-section {
             padding: 120px 0;
@@ -1804,6 +1932,7 @@
             <div class="nav-links">
                 <a href="#adn" class="nav-link">ADN Llanero</a>
                 <a href="#servicios" class="nav-link">Servicios</a>
+                <a href="#software" class="nav-link">Software ConTech</a>
                 <a href="#ceo" class="nav-link">CEO</a>
                 <a href="javascript:void(0)" onclick="openContactModal()" class="nav-btn-contact">Contacto</a>
             </div>
@@ -2168,6 +2297,109 @@
                     </a>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- SECCIÓN INGENIERÍA DE SOFTWARE & ECOSISTEMA AXIO -->
+        <section id="software" class="software-section" style="position: relative; border-top: 1px solid rgba(255, 255, 255, 0.03);">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Desarrollo Tecnológico & Propietario</span>
+                <h2 class="section-title">Ecosistema de Software & ConTech</h2>
+                <p style="color: var(--color-text-secondary); max-width: 780px; margin: 15px auto 0 auto; font-size: 1.05rem; font-weight: 300;">
+                    En AxioPri S.A.S BIC no solo ejecutamos consultoría de ingeniería; desarrollamos herramientas de software nativas, plataformas web de alto rendimiento y soluciones con Inteligencia Artificial para transformar la construcción, la educación y el campo en Colombia.
+                </p>
+            </div>
+
+            <div class="software-grid">
+                <!-- PROYECTO 1: AXIO MÉTRICA -->
+                <div class="software-card card reveal delay-1">
+                    <div class="software-card-header">
+                        <span class="software-sector">Construtech / BIM + IA</span>
+                        <span class="software-status status-active">En Desarrollo Central</span>
+                    </div>
+                    <div class="software-icon-wrapper">
+                        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--color-dorado-bright)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    </div>
+                    <h3>AxioMétrica</h3>
+                    <p class="software-tagline">Centro de mando e inteligencia para la gestión, auditoría automatizada y control presupuestal de obras civiles e infraestructura.</p>
+                    
+                    <div class="software-body">
+                        <div class="software-problem">
+                            <strong>Problema que resuelve:</strong> Informalidad en datos de campo, falta de trazabilidad en sobrecostos y errores por gestión en hojas de cálculo tradicionales o papel.
+                        </div>
+                        <div class="software-target">
+                            <strong>Público objetivo:</strong> Constructoras, gerencias de infraestructura, interventorías y directores de obra en Colombia y LATAM.
+                        </div>
+                    </div>
+
+                    <div class="software-tech-stack">
+                        <span class="tech-pill">Next.js</span>
+                        <span class="tech-pill">Firebase (Firestore/Auth)</span>
+                        <span class="tech-pill">Google Cloud Run</span>
+                        <span class="tech-pill">Gemini & Antigravity AI</span>
+                        <span class="tech-pill">Dashboards & A11y</span>
+                    </div>
+                </div>
+
+                <!-- PROYECTO 2: STUDIA -->
+                <div class="software-card card reveal delay-2">
+                    <div class="software-card-header">
+                        <span class="software-sector">EdTech / Android Native</span>
+                        <span class="software-status status-testing">Closed Testing (Play Console)</span>
+                    </div>
+                    <div class="software-icon-wrapper">
+                        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--color-moriche)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path><path d="M12 6l-3 5h6l-3 5"></path></svg>
+                    </div>
+                    <h3>Studia (Estúdia)</h3>
+                    <p class="software-tagline">Ecosistema móvil nativo de organización académica y asistencia personalizada universitaria con IA.</p>
+                    
+                    <div class="software-body">
+                        <div class="software-problem">
+                            <strong>Problema que resuelve:</strong> Desorden académico, procrastinación y falta de visibilidad en tiempo real del rendimiento estudiantil en la educación superior.
+                        </div>
+                        <div class="software-target">
+                            <strong>Público objetivo:</strong> Estudiantes universitarios de pregrado, posgrado y educación técnica/tecnológica.
+                        </div>
+                    </div>
+
+                    <div class="software-tech-stack">
+                        <span class="tech-pill">Android Native</span>
+                        <span class="tech-pill">Kotlin</span>
+                        <span class="tech-pill">Jetpack Compose</span>
+                        <span class="tech-pill">Agente IA Académico</span>
+                        <span class="tech-pill">Google Play Console</span>
+                    </div>
+                </div>
+
+                <!-- PROYECTO 3: AXIOTERRA -->
+                <div class="software-card card reveal delay-3">
+                    <div class="software-card-header">
+                        <span class="software-sector">Agrotech / Trazabilidad Rural</span>
+                        <span class="software-status status-active">En Desarrollo</span>
+                    </div>
+                    <div class="software-icon-wrapper">
+                        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--color-ocaso)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>
+                    </div>
+                    <h3>AxioTerra <span style="font-size: 0.8rem; color: var(--color-text-muted); font-weight: 400;">(antes Oasis)</span></h3>
+                    <p class="software-tagline">Plataforma de gestión operativa, trazabilidad agrícola por lotes y liquidación de nómina rural con IA.</p>
+                    
+                    <div class="software-body">
+                        <div class="software-problem">
+                            <strong>Problema que resuelve:</strong> Ausencia de registros técnicos en el campo, estimaciones imprecisas de cosecha y descontrol en pagos de jornales a trabajadores rurales.
+                        </div>
+                        <div class="software-target">
+                            <strong>Público objetivo:</strong> Productores agrícolas, administradores de fincas y agrónomos (cultivos de aguacate Lorena y la Orinoquía).
+                        </div>
+                    </div>
+
+                    <div class="software-tech-stack">
+                        <span class="tech-pill">Trazabilidad Agronómica</span>
+                        <span class="tech-pill">Nómina Rural</span>
+                        <span class="tech-pill">Control de Insumos</span>
+                        <span class="tech-pill">SDK IA Agronómica</span>
+                        <span class="tech-pill">Cloud & Offgrid</span>
+                    </div>
+                </div>
             </div>
         </section>
 
